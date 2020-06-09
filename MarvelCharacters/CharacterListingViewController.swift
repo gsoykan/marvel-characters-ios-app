@@ -38,7 +38,7 @@ class CharacterListingViewController: BaseViewController, CharacterListingDelega
     private func configure() {
         presenter = CharacterListingPresenter(delegate: self)
         collectionView.register(CharacterCollectionViewCell.self)
-        presenter.getCharacters()
+        presenter.fetchCharacters()
     }
 }
 
@@ -80,7 +80,7 @@ extension CharacterListingViewController: UICollectionViewDataSourcePrefetching 
             let maxIndex = indexPaths.max()?.item
             else { return }
         if characters[safeIndex: maxIndex] == nil {
-            presenter.getCharacters()
+            presenter.fetchCharacters()
         }
     }
 }

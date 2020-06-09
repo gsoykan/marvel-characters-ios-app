@@ -44,7 +44,7 @@ class CharacterListingPresenter {
         fetchingState = .initialLoading
     }
     
-    func getCharacters() {
+    func fetchCharacters() {
         guard fetchingState == .ready || fetchingState == .initialLoading else { return }
         if fetchingState == .initialLoading {
             delegate.showActivityIndicator()
@@ -63,7 +63,7 @@ class CharacterListingPresenter {
                 } else {
                     strongSelf.offset += strongSelf.limit
                 }
-                let cleanResults = response.data.results?.compactMap { $0 }.filter(strongSelf.legitimizeCharacter(_:)) ?? []
+                let cleanResults = response.data.results?.filter(strongSelf.legitimizeCharacter(_:)) ?? []
                 guard (self?.delegate.characters) != nil else {
                     strongSelf.delegate.characters = cleanResults
                     strongSelf.fetchingState = .ready
