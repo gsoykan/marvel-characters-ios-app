@@ -11,12 +11,22 @@ import UIKit
 class CharacterListingViewController: BaseViewController, CharacterListingDelegate {
     private var presenter: CharacterListingPresenter!
     var characters: [Character]? {
-        didSet {
+        willSet {
+            guard let updatedChars = newValue else {
+                return
+            }
+            let indexPathsForUpdate = ((characters?.endIndex ?? 0)..<updatedChars.endIndex).map { IndexPath(item: $0, section: 0) }
+            let indexPathsForPrefetch = (updatedChars.endIndex..<itemCount).map { IndexPath(item: $0, section: 0) }
             DispatchQueue.main.async { [weak self] in
-                   self?.collectionView.reloadData()
-               }
+                self?.collectionView.performBatchUpdates({
+                    self?.collectionView.reloadItems(at: indexPathsForUpdate)
+                    self?.collectionView.insertItems(at: indexPathsForPrefetch)
+                }, completion: nil)
+                
+            }
         }
     }
+    var itemCount: Int = 30
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -38,13 +48,16 @@ extension CharacterListingViewController: UICollectionViewDelegate {
 
 extension CharacterListingViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return characters?.count ?? 0
+        return itemCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.typeName, for: indexPath) as? CharacterCollectionViewCell,
-            let character = characters?[safeIndex: indexPath.item] else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCollectionViewCell.typeName, for: indexPath) as? CharacterCollectionViewCell else {
             return UICollectionViewCell()
+        }
+        guard let character = characters?[safeIndex: indexPath.item] else {
+            cell.reset()
+            return cell
         }
         cell.configure(with: character)
         return cell
@@ -61,3 +74,13 @@ extension CharacterListingViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension CharacterListingViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let characters = characters,
+            let maxIndex = indexPaths.max()?.item
+            else { return }
+        if characters[safeIndex: maxIndex] == nil {
+            presenter.getCharacters()
+        }
+    }
+}

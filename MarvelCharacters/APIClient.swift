@@ -20,6 +20,7 @@ class APIClient {
             return
         }
         var request = URLRequest(url: url)
+        debugPrint("REQUEST URL: \(request.url?.absoluteString)")
         request.httpMethod = router.httpMethod
         request.setValue(Constants.Networking.contentTypeJSONValue, forHTTPHeaderField: Constants.Networking.contentTypeKey)
         let task = session.dataTask(with: request) { data, response, error in

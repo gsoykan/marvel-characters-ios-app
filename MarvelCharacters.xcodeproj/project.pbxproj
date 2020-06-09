@@ -26,7 +26,7 @@
 		F47A935C248ED51D00141999 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A935B248ED51D00141999 /* APIRouter.swift */; };
 		F47A935F248ED8F000141999 /* CharacterListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A935E248ED8F000141999 /* CharacterListingViewController.swift */; };
 		F47A9361248ED98500141999 /* CharacterListingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A9360248ED98500141999 /* CharacterListingPresenter.swift */; };
-		F47A9363248ED99E00141999 /* CharacterListingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A9362248ED99E00141999 /* CharacterListingProtocol.swift */; };
+		F47A9363248ED99E00141999 /* CharacterListingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A9362248ED99E00141999 /* CharacterListingDelegate.swift */; };
 		F47A9365248ED9B500141999 /* BaseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A9364248ED9B500141999 /* BaseDelegate.swift */; };
 		F47A9368248EDB5D00141999 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A9367248EDB5D00141999 /* Character.swift */; };
 		F47A936A248EFDA500141999 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A9369248EFDA500141999 /* Crypto.swift */; };
@@ -77,7 +77,7 @@
 		F47A935B248ED51D00141999 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		F47A935E248ED8F000141999 /* CharacterListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListingViewController.swift; sourceTree = "<group>"; };
 		F47A9360248ED98500141999 /* CharacterListingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListingPresenter.swift; sourceTree = "<group>"; };
-		F47A9362248ED99E00141999 /* CharacterListingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListingProtocol.swift; sourceTree = "<group>"; };
+		F47A9362248ED99E00141999 /* CharacterListingDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListingDelegate.swift; sourceTree = "<group>"; };
 		F47A9364248ED9B500141999 /* BaseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseDelegate.swift; sourceTree = "<group>"; };
 		F47A9367248EDB5D00141999 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		F47A9369248EFDA500141999 /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
@@ -285,7 +285,7 @@
 			children = (
 				F47A935E248ED8F000141999 /* CharacterListingViewController.swift */,
 				F47A9360248ED98500141999 /* CharacterListingPresenter.swift */,
-				F47A9362248ED99E00141999 /* CharacterListingProtocol.swift */,
+				F47A9362248ED99E00141999 /* CharacterListingDelegate.swift */,
 			);
 			name = CharacterListing;
 			sourceTree = "<group>";
@@ -488,7 +488,7 @@
 				F47A9379248F10D700141999 /* UIScreen.swift in Sources */,
 				F47A9353248ECE9F00141999 /* UIColor.swift in Sources */,
 				F47A934E248ECD0B00141999 /* BaseView.swift in Sources */,
-				F47A9363248ED99E00141999 /* CharacterListingProtocol.swift in Sources */,
+				F47A9363248ED99E00141999 /* CharacterListingDelegate.swift in Sources */,
 				F47A9370248F054400141999 /* UICollectionView.swift in Sources */,
 				F47A935C248ED51D00141999 /* APIRouter.swift in Sources */,
 				F47A9351248ECD7600141999 /* BaseViewController.swift in Sources */,

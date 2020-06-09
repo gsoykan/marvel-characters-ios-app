@@ -10,4 +10,5 @@ import Foundation
 
 protocol CharacterListingDelegate: BaseDelegate {
     var characters: [Character]? { get set }
+    var itemCount: Int { get set }
 }

@@ -8,36 +8,72 @@
 
 import Foundation
 
-// TODO: implement pagination
-// TODO: impl prefetcher logic
 // TODO: impl detail page
 // TODO: check some images returning funny
 
 class CharacterListingPresenter {
     weak var delegate: CharacterListingDelegate!
     private let limit = 30
-    private var offset = 0
+    private var offset = 0 {
+        didSet {
+            debugPrint("offset: \(offset)")
+            delegate.itemCount = (delegate.characters?.count ?? 0) + 2 * limit
+        }
+    }
+    
+    enum FetchingState {
+         case initialLoading
+         case loading
+         case ready
+         case end
+     }
+    
+    private var fetchingState: FetchingState! {
+        didSet {
+            switch fetchingState {
+            case .end:
+                delegate.itemCount = delegate.characters?.count ?? 0
+            default:
+                break
+            }
+        }
+    }
     
     init(delegate: CharacterListingDelegate) {
         self.delegate = delegate
+        fetchingState = .initialLoading
     }
     
     func getCharacters() {
-        delegate.showActivityIndicator()
+        guard fetchingState == .ready || fetchingState == .initialLoading else { return }
+        if fetchingState == .initialLoading {
+            delegate.showActivityIndicator()
+        }
+        let previousState = fetchingState
+        fetchingState = .loading
         APIClient.shared.request(router: APIRouter.characters(limit: limit, Offset: offset)) { [weak self] (result: Result<MarvelResponse<[Character]>, Error>) in
             guard let strongSelf = self else { return }
-            strongSelf.delegate.hideActivityIndicator()
+            if previousState == .initialLoading {
+                strongSelf.delegate.hideActivityIndicator()
+            }
             switch result {
             case let .success(response):
+                if response.data.results?.isEmpty ?? true {
+                    strongSelf.fetchingState = .end
+                } else {
+                    strongSelf.offset += strongSelf.limit
+                }
                 let cleanResults = response.data.results?.compactMap { $0 }.filter(strongSelf.legitimizeCharacter(_:)) ?? []
                 guard (self?.delegate.characters) != nil else {
                     strongSelf.delegate.characters = cleanResults
+                    strongSelf.fetchingState = .ready
                     return
                 }
                 strongSelf.delegate.characters?.append(contentsOf: cleanResults)
             case let .failure(error):
                 strongSelf.delegate.showError(error.localizedDescription)
             }
+            strongSelf.fetchingState = .ready
         }
     }
     

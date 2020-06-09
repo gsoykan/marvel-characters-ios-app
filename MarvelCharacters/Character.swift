@@ -9,7 +9,18 @@
 import Foundation
 
 // MARK: - Result
-struct Character: Codable {
+struct Character: Codable, Hashable {
+    static func == (lhs: Character, rhs: Character) -> Bool {
+        guard let lhsId = lhs.id,
+            let rhsId = rhs.id else { return false }
+        return lhsId == rhsId
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(self.id)
+        hasher.combine(self.name)
+    }
+    
     let id: Int?
     let name, resultDescription: String?
     let modified: String?

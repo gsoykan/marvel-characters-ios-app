@@ -29,4 +29,9 @@ class CharacterCollectionViewCell: UICollectionViewCell, NameDescribable {
             imageView.kf.setImage(with: imageUrl)
         }
     }
+    
+    func reset() {
+        nameLabel.text = "loading"
+        imageView.image = nil
+    }
 }
