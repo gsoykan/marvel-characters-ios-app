@@ -43,7 +43,12 @@ class CharacterListingViewController: BaseViewController, CharacterListingDelega
 }
 
 extension CharacterListingViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let character = characters?[safeIndex: indexPath.item] else { return }
+        let detailVC = UIStoryboard.main.instantiate(CharacterDetailViewController.self)
+        detailVC?.character = character
+        presentNullable(detailVC)
+    }
 }
 
 extension CharacterListingViewController: UICollectionViewDataSource {

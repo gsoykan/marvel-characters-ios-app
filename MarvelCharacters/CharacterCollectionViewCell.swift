@@ -26,7 +26,8 @@ class CharacterCollectionViewCell: UICollectionViewCell, NameDescribable {
     func configure(with character: Character) {
         nameLabel.text = character.name ?? ""
         if let imageUrl = character.thumbnail?.url {
-            imageView.kf.setImage(with: imageUrl)
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: imageUrl, options: [ .transition(.fade(0.32)), .cacheOriginalImage])
         }
     }
     

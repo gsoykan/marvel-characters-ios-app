@@ -8,9 +8,6 @@
 
 import Foundation
 
-// TODO: impl detail page
-// TODO: check some images returning funny
-
 class CharacterListingPresenter {
     weak var delegate: CharacterListingDelegate!
     private let limit = 30

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		27BBF2851390A725568CC5D0 /* Pods_MarvelCharactersTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39E373891B006E6DD382653 /* Pods_MarvelCharactersTests.framework */; };
+		F427B67D2490B2450033536B /* CharacterDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427B67C2490B2450033536B /* CharacterDetailPresenter.swift */; };
+		F427B67F2490B2530033536B /* CharacterDetailDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427B67E2490B2530033536B /* CharacterDetailDelegate.swift */; };
+		F427B6812490B2CB0033536B /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427B6802490B2CB0033536B /* CharacterDetailViewController.swift */; };
+		F427B6832490C3B40033536B /* SelfSizedTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427B6822490C3B40033536B /* SelfSizedTableView.swift */; };
+		F427B6852490C6A20033536B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427B6842490C6A20033536B /* String.swift */; };
 		F47A931B248EC9AF00141999 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47A931A248EC9AF00141999 /* AppDelegate.swift */; };
 		F47A9322248EC9AF00141999 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F47A9320248EC9AF00141999 /* Main.storyboard */; };
 		F47A9324248EC9B300141999 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F47A9323248EC9B300141999 /* Assets.xcassets */; };
@@ -55,6 +60,11 @@
 		99731B5A72B08F721DCD59AC /* Pods-MarvelCharactersTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharactersTests.release.xcconfig"; path = "Target Support Files/Pods-MarvelCharactersTests/Pods-MarvelCharactersTests.release.xcconfig"; sourceTree = "<group>"; };
 		AE620A4FD23FCA0625F30DE1 /* Pods-MarvelCharacters.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelCharacters.release.xcconfig"; path = "Target Support Files/Pods-MarvelCharacters/Pods-MarvelCharacters.release.xcconfig"; sourceTree = "<group>"; };
 		C39E373891B006E6DD382653 /* Pods_MarvelCharactersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelCharactersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F427B67C2490B2450033536B /* CharacterDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailPresenter.swift; sourceTree = "<group>"; };
+		F427B67E2490B2530033536B /* CharacterDetailDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailDelegate.swift; sourceTree = "<group>"; };
+		F427B6802490B2CB0033536B /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
+		F427B6822490C3B40033536B /* SelfSizedTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSizedTableView.swift; sourceTree = "<group>"; };
+		F427B6842490C6A20033536B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		F47A9317248EC9AF00141999 /* Marvel Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Characters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47A931A248EC9AF00141999 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F47A9321248EC9AF00141999 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +140,16 @@
 				C39E373891B006E6DD382653 /* Pods_MarvelCharactersTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F427B67B2490B22F0033536B /* CharacterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F427B6802490B2CB0033536B /* CharacterDetailViewController.swift */,
+				F427B67E2490B2530033536B /* CharacterDetailDelegate.swift */,
+				F427B67C2490B2450033536B /* CharacterDetailPresenter.swift */,
+			);
+			name = CharacterDetail;
 			sourceTree = "<group>";
 		};
 		F47A930E248EC9AE00141999 = {
@@ -209,6 +229,7 @@
 		F47A933F248ECA3A00141999 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F427B67B2490B22F0033536B /* CharacterDetail */,
 				F47A935D248ED8D100141999 /* CharacterListing */,
 			);
 			name = Scenes;
@@ -231,6 +252,7 @@
 				F47A936F248F054400141999 /* UICollectionView.swift */,
 				F47A9376248F0B6200141999 /* Array.swift */,
 				F47A9378248F10D700141999 /* UIScreen.swift */,
+				F427B6842490C6A20033536B /* String.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +280,7 @@
 			children = (
 				F47A9371248F058700141999 /* CharacterListing */,
 				F47A934D248ECD0B00141999 /* BaseView.swift */,
+				F427B6822490C3B40033536B /* SelfSizedTableView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -478,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F427B6852490C6A20033536B /* String.swift in Sources */,
 				F47A9355248ECFCE00141999 /* Networking.swift in Sources */,
 				F47A9347248ECC1300141999 /* UIStoryboard.swift in Sources */,
 				F47A9345248ECBD700141999 /* UITableView.swift in Sources */,
@@ -485,8 +509,11 @@
 				F47A9342248ECB5F00141999 /* NameDescribable.swift in Sources */,
 				F47A9358248ED20500141999 /* APIClient.swift in Sources */,
 				F47A9377248F0B6200141999 /* Array.swift in Sources */,
+				F427B6812490B2CB0033536B /* CharacterDetailViewController.swift in Sources */,
+				F427B67D2490B2450033536B /* CharacterDetailPresenter.swift in Sources */,
 				F47A9379248F10D700141999 /* UIScreen.swift in Sources */,
 				F47A9353248ECE9F00141999 /* UIColor.swift in Sources */,
+				F427B6832490C3B40033536B /* SelfSizedTableView.swift in Sources */,
 				F47A934E248ECD0B00141999 /* BaseView.swift in Sources */,
 				F47A9363248ED99E00141999 /* CharacterListingDelegate.swift in Sources */,
 				F47A9370248F054400141999 /* UICollectionView.swift in Sources */,
@@ -498,6 +525,7 @@
 				F47A935F248ED8F000141999 /* CharacterListingViewController.swift in Sources */,
 				F47A935A248ED30700141999 /* MCError.swift in Sources */,
 				F47A934B248ECC9400141999 /* Constants.swift in Sources */,
+				F427B67F2490B2530033536B /* CharacterDetailDelegate.swift in Sources */,
 				F47A936C248F018600141999 /* MarvelResponse.swift in Sources */,
 				F47A9368248EDB5D00141999 /* Character.swift in Sources */,
 				F47A9374248F05BB00141999 /* CharacterCollectionViewCell.swift in Sources */,

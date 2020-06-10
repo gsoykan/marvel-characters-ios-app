@@ -10,7 +10,7 @@ import UIKit
 import SVProgressHUD
 
 class BaseViewController: UIViewController, NameDescribable, BaseDelegate {    
-    func presentNullable(_ viewControllerToPresent: UIViewController?, animated flag: Bool, completion: (() -> Void)? = nil) {
+    func presentNullable(_ viewControllerToPresent: UIViewController?, animated flag: Bool = true, completion: (() -> Void)? = nil) {
         guard let viewController = viewControllerToPresent else {
             assertionFailure()
             return
